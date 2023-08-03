@@ -45,6 +45,7 @@ class Solution:
             nodes = graph.get_outgoing_edges(start_node)
             value = 0
             greatest = 0
+            start_node = start_node
             notgo = []
             for i in nodes:
                 if i not in notgo:

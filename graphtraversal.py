@@ -44,18 +44,18 @@ class Solution:
             #return type: int
             nodes = graph.get_outgoing_edges(start_node)
             value = 0
-            greatest = 0
+            greatest = 1000000
             start_node = start_node
             notgo = []
             for i in nodes:
                 if i not in notgo:
-                    value += graph.value(i, start_node)
+                    value += graph.value(start_node, i)
                     print(value)
                     nodes = graph.get_outgoing_edges(i)
                     start_node = i
                     if len(nodes) == 0:
                         notgo.append(i)
-                    if value > greatest:
+                    if value < greatest:
                         greatest = value
             return greatest
 

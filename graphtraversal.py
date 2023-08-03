@@ -44,9 +44,9 @@ class Solution:
             #return type: int
             
             #TODO: Write code below to return an int with the solution to the prompt.
-            start = self.graph[start_node]
+            start = Graph.graph[start_node]
             print(start)
-            print(self.graph)
+            print(Graph.graph)
 
             pass
 

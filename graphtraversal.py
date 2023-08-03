@@ -42,13 +42,23 @@ class Solution:
             #type graph: String Dictionary
             #type start_node: 
             #return type: int
+            nodes = graph.get_outgoing_edges(start_node)
+            value = 0
+            greatest = 0
+            notgo = []
+            for i in nodes:
+                if i not in notgo:
+                    value += graph.value(start_node, i)
+                    nodes = graph.get_outgoing_edges(i)
+                    start_node = i
+                    if len(nodes) == 0:
+                        notgo.append(i)
+                    if value > greatest:
+                        greatest = value
+            return greatest
+
             
-            #TODO: Write code below to return an int with the solution to the prompt.
-            # start = Graph.graph[start_node]
-            # print(start)
-            # print(Graph.graph)
-            print(graph.get_nodes())
-            return 1
+            #TODO: Write code below to return an int with the solution to the prompt.       
 
             pass
 

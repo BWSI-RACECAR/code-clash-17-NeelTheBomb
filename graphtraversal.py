@@ -48,6 +48,7 @@ class Solution:
             # print(start)
             # print(Graph.graph)
             print(graph.get_nodes())
+            return 1
 
             pass
 

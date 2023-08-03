@@ -49,7 +49,8 @@ class Solution:
             notgo = []
             for i in nodes:
                 if i not in notgo:
-                    value += graph[graph.value(start_node, i)]
+                    value += graph.value(start_node, i)
+                    print(value)
                     nodes = graph.get_outgoing_edges(i)
                     start_node = i
                     if len(nodes) == 0:

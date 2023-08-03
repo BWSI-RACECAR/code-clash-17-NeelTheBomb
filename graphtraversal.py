@@ -47,6 +47,7 @@ class Solution:
             # start = Graph.graph[start_node]
             # print(start)
             # print(Graph.graph)
+            print(graph.get_nodes())
 
             pass
 

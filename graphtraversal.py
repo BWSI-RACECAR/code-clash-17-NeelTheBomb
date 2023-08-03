@@ -44,8 +44,8 @@ class Solution:
             #return type: int
             
             #TODO: Write code below to return an int with the solution to the prompt.
-            start = graph[start_node]
-            print(start)
+            # start = graph[start_node]
+            # print(start)
             print(graph)
 
             pass

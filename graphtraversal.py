@@ -39,25 +39,43 @@ class Graph(object):
 class Solution:
     
     def spath_algo(self, graph, start_node):
-            #type graph: String Dictionary
-            #type start_node: 
-            #return type: int
-            nodes = graph.get_outgoing_edges(start_node)
-            value = 0
-            greatest = 1000000
-            start_node = start_node
-            notgo = []
-            for i in nodes:
-                if i not in notgo:
-                    value += graph.value(start_node, i)
-                    print(value)
-                    nodes = graph.get_outgoing_edges(i)
-                    start_node = i
-                    if len(nodes) == 0:
-                        notgo.append(i)
-                    if value < greatest:
-                        greatest = value
-            return greatest
+        graph['Finish'] = {}
+        
+        unvisited_nodes = []
+        nodes = []
+
+        for node, _ in graph.items():
+            unvisited_nodes.append(node)
+            nodes.append(node)
+
+        shortest_path = {}
+        previous_nodes = {}
+
+        max_value = 10000
+        for node in unvisited_nodes:
+            shortest_path[node] = max_value
+        shortest_path["Start"] = 0
+
+        while unvisited_nodes:
+            current_min_node = None
+            for node in unvisited_nodes:
+                if current_min_node == None:
+                    current_min_node = node
+                elif shortest_path[node] < shortest_path[current_min_node]:
+                    current_min_node = node
+            neighbors = []
+            for next_node in graph[current_min_node]:
+                neighbors.append(next_node)
+
+            for neighbor in neighbors:
+                tentative_value = shortest_path[current_min_node] + graph[current_min_node][neighbor]
+                if tentative_value < shortest_path[neighbor]:
+                    shortest_path[neighbor] = tentative_value
+                    previous_nodes[neighbor] = current_min_node
+
+            unvisited_nodes.remove(current_min_node)
+
+        return shortest_path['Finish']
 
             
             #TODO: Write code below to return an int with the solution to the prompt.       

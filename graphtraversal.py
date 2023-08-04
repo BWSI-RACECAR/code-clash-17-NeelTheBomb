@@ -39,7 +39,7 @@ class Graph(object):
 class Solution:
     
     def spath_algo(self, graph, start_node):
-        graph['Finish'] = {}
+        self.graph['Finish'] = {}
         
         unvisited_nodes = []
         nodes = []
